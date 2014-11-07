@@ -1,9 +1,11 @@
 {
-	"name": "mile23/page-example",
-	"type": "drupal-module",
+    "name": "mile23/page-example",
+    "type": "drupal-module",
     "require": {
         "symfony/console": "~2.5",
-	"composer/installers": "~1.0"
-},
-	"extra": { "installer-name": "page_example" }
+        "composer/installers": "~1.0"
+    },
+    "extra": {
+        "installer-name": "page_example"
+    }
 }
