@@ -1,0 +1,20 @@
+language: php
+php:
+  - 5.4
+
+mysql:
+  database: drupal
+  username: root
+  encoding: utf8
+
+before_script:
+ - composer global require drush/drush ~6@dev
+ - drush dl drupal-8.x --drupal-project-rename=drupal
+ - cd drupal
+ - drush runserver --server=builtin 8080 &
+ - sleep 4
+ - composer --no-progress install
+
+script:
+ - cd drupal
+ - php ./core/scripts/run-tests.sh --sqlite /tmpfs/drupal/test.sqlite --dburl mysql://username:password@localhost/database --url http://localhost:8080/ --module=page_example
